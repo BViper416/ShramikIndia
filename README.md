@@ -1,5 +1,6 @@
 # ShramikIndia
-Hackathon Project Submission from Team Catttywampus HST067
+Hackathon Project Submission from Team Catttywampus HST067 <br>
+PLEASE CHECK **MASTER** BRANCH FOR ALL THE FILES AND COMMITS
 
 
 ## Problem Statement
@@ -32,7 +33,7 @@ Back-End-- `Firebase`
 
 ## Requirments Smartphone
 
-`Java,Twilio, Firebase` 
+`Java, Firebase` 
 
 Files & directories
 List of key files and directories, how they're organized and used, etc.
