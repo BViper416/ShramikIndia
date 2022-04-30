@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shramik.com</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.11/firebase-storage.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+
+    #background {
+
+      min-height: 1050px;
+      width: 100%;
+
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    #top {
+      height: 35px;
+      width: 100%;
+      background: #2c7ad6;
+      line-height: 35px;
+      padding: 0px 20px 9px 100px;
+      box-sizing: border-box;
+      word-spacing: 10px;
+
+    }
+
+    #menu {
+      height: 65px;
+      width: 100%;
+      background: green;
+
+    }
+
+    #logo {
+      height: 65px;
+      width: 40%;
+      background: white;
+      text-align: left;
+      line-height: 65px;
+      font-size: 40px;
+      float: left;
+
+    }
+
+    #menu1 {
+      height: 65px;
+      width: 60%;
+      background: white;
+      float: left;
+      text-shadow: 1px 2px 2px rgb(0, 0, 0, .4);
+
+    }
+
+    #menu1 UL {
+      list-style: none;
+      padding-left: 500px;
+      box-sizing: border-box;
+
+    }
+
+    #menu1 LI {
+      height: 45px;
+      width: 130px;
+
+      text-align: center;
+      display: inline-block;
+      line-height: 45px;
+      transform: translateY(-5px);
+      color: black;
+      font-size: 20px;
+
+    }
+
+    #menu1 LI:hover {
+      background: #2c7ad6;
+      color: white;
+      transition: all ease 1s;
+      border-radius: 3px;
+    }
+
+    #slider {
+      height: 640px;
+      width: 100%;
+      background: url(image/4.jpg);
+      background-size: cover;
+      background-attachment: fixed;
+
+    }
+
+    #x {
+      height: 640px;
+      overflow-y: hidden;
+      width: 40%;
+      background: rgba(0, 0, 0, .4);
+      float: left;
+      font-size: 41PX;
+      color: white;
+      text-align: center;
+      padding-top: 100px;
+      padding-bottom: 100px;
+      padding-left: 50px;
+      box-sizing: border-box;
+    }
+
+    #y {
+
+      height: 640px;
+      width: 60%;
+      background: rgba(0, 0, 0, .4);
+      float: left;
+
+    }
+
+    #l {
+      height: 629px;
+      width: 60%;
+      background: rgba(0, 0, 0, 0.4);
+      float: left;
+      margin: 12px 20px 80px 250px;
+      border-radius: 7px;
+      padding-top: 2px;
+      font-size: 1.2vw;
+    }
+
+    #l:hover {
+      background: linear-gradient(45deg, rgba(255, 255, 255, .6), rgba(255, 255, 255, .6));
+    }
+
+
+    #Worker {
+      margin: 50px 50px;
+      color: blue;
+
+    }
+
+    .loader-container {
+      position: fixed;
+      width: 100vw;
+      height: 100vh;
+      top: 0px;
+      z-index: 9999;
+      background-color: rgba(0, 0, 0, .4);
+      display: none;
+    }
+
+    .loader-container-center {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .loader {
+      border: 16px solid #f3f3f3;
+      /* Light grey */
+      border-top: 16px solid #3498db;
+      /* Blue */
+      border-radius: 50%;
+      width: 120px;
+      height: 120px;
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .t {
+      height: 30px;
+      width: 100%;
+      border: 1px solid green;
+      border-radius: 6px;
+      box-sizing: border-box;
+      margin-bottom: 7px;
+
+    }
+
+    #down {
+      height: 300px;
+      width: 100%;
+      margin-top: 10px;
+      background: #2c7ad6;
+      text-align: center;
+      padding-top: 50px;
+      color: white;
+    }
+
+    .footer {
+      height: 20px;
+      width: 100%;
+      background: black;
+      color: white;
+      text-align: center;
+    }
+
+    @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    nav {
+      display: flex;
+      height: 66px;
+      width: 100%;
+      background: white;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 0px 0 0px;
+      flex-wrap: wrap;
+    }
+
+    nav .logo {
+      color: black;
+      font-size: 3vw;
+      font-weight: 600;
+    }
+
+    nav ul {
+      display: flex;
+      flex-wrap: wrap;
+      list-style: none;
+      text-shadow: 0px 2px rgb(0, 0, 0, .4);
+
+    }
+
+    nav ul li {
+      margin: 0px 5px;
+      padding-left: 25px;
+    }
+
+    nav ul li a {
+      color: black;
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: 500;
+      padding: 10px 15px;
+      border-radius: 5px;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a.active,
+    nav ul li a:hover {
+      color: #111;
+      background: #2c7ad6;
+
+    }
+
+    nav .menu-btn i {
+      color: #2c7ad6;
+      font-size: 22px;
+      cursor: pointer;
+      display: none;
+    }
+
+    input[type="checkbox"] {
+      display: none;
+    }
+
+    @media (max-width: 1000px) {
+      nav {
+        padding: 0 40px 0 50px;
+      }
+    }
+
+    @media (max-width: 920px) {
+      nav .menu-btn i {
+        display: block;
+      }
+
+      #click:checked~.menu-btn i:before {
+        content: "\f00d";
+      }
+
+      nav ul {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        background: white;
+        height: 100vh;
+        width: 100%;
+        text-align: center;
+        display: block;
+        transition: all 0.3s ease;
+      }
+
+      #click:checked~ul {
+        left: 0;
+      }
+
+      nav ul li {
+        width: 100%;
+        margin: 40px 0;
+      }
+
+      nav ul li a {
+        width: 100%;
+        margin-left: -100%;
+        display: block;
+        font-size: 20px;
+        transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      #click:checked~ul li a {
+        margin-left: 0px;
+      }
+
+      nav ul li a.active,
+      nav ul li a:hover {
+        background: none;
+        color: #2c7ad6;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="loader-container">
+    <div class="loader-container-center">
+      <div class="loader"></div>
+      <div style="padding: 50px 50px; background: white; z-index: 99999; display: none;" id="qr_code"></div>
+    </div>
+  </div>
+  <div id="background">
+    <div id="top">
+      <marquee direction="right">
+        <a href="#" class="fa fa-envelope" style="text-decoration:none;  color: white;">
+          shramikindia@gmail.com
+        </a>
+        <a href="#" class="fa fa-phone" style="text-decoration:none; color: white;">
+          Helpline no : 823765436
+        </a>
+      </marquee>
+    </div>
+    <div id="menu">
+      <nav>
+        <div class="logo">SHRA<b style="color:#2c7ad6 ;">MIK</b>
+        </div>
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+        <ul>
+          <li><a href="ican.html">Home</a></li>
+          <li><a href="register.html">Register</a></li>
+          <li><a href="about.html">About us</a></li>
+
+        </ul>
+      </nav>
+    </div>
+    <div id="slider" style="background-image: url('image2.jpg');">
+      <div id="x">
+        <marquee direction="up" behavior="scroll" scrollamount="1">
+          <p style="font-size: 15PX;">GUIDELINE FOR WORKERS<br>
+            1. ALL WORKERS SHOULD REGULARLY SCAN THERE QR CODE AS PER THERE AVAILABILITY.<br>
+            2. ALL WORKERS SHOULD BE REACHED ON GIVEN TIME.<br>
+            3. NO ONE SHOULD EXPLOIT THE CONSUMER INCONVIENCY<br>
+            4. ALL WORKERS SHOULD NOT BE ASSIGNED TWO OR MORE THAN TWO WORK AT A SAME TIME.<br>
+            5  MORE WORK MORE INCENTIVE.<br>श्रमिकों के लिए दिशानिर्देश<br>
+            1. सभी श्रमिकों को नियमित रूप से वहाँ उपलब्धता के अनुसार वहाँ QR कोड स्कैन करना चाहिए.<br>
+            2. सभी श्रमिकों को दिए गए समय पर पहुंचा जाना चाहिए।<br>
+            3. किसी को भी उपभोक्ता असुविधा का फायदा नहीं उठाना चाहिए<br>
+            4. सभी श्रमिकों को एक ही समय में दो या दो से अधिक काम नहीं सौंपा जाना चाहिए।<br>
+            5 अधिक काम अधिक प्रोत्साहन</p>
+        </marquee>
+      </div>
+      <div id="y">
+        <div id="l">
+          <h1 style=" text-align: center; color:#2c7ad6;font-size: 2vw;">REGISTER</h1>
+          <form id="Worker">
+            NAME <br><input type="text" id="name" class="t" placeholder="  Name" required /><br>
+            DOB <br><input type="date" id="dob" class="t" placeholder="Dob" required /><br>
+            GENDER <br><select name="" id="gender" class="t" required>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="others">Others</option>
+            </select><br>
+            SKILLS <br><select name="" id="skill" class="t" required>
+              <option value="Thekedar">Thekedar</option>
+              <option value="electrician">electrician</option>
+              <option value="plumber">plumber</option>
+              <option value="unskilled">unskilled</option>
+              <option value="carpenter">carpenter</option>
+              <option value="tile fixer">tile fixer</option>
+            </select><br>
+            <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture><br>
+            ADHAAR NO.<br><input type="number" id="adhaar" class="t" placeholder="  Adhaar" required /><br>
+            PHONE NO.<br><input type="number" id="pnum" class="t" placeholder="  Phone no." required /><br>
+            PINCODE <br><input type="number" id="pincode" class="t" placeholder="  Pincode" required /><br>
+            EXPERIENCE *in years <br><input type="number" id="exp" class="t" placeholder="  Experience" required /><br>
+            <a href=""><input type="submit" value="REGISTER" id="register"
+                style="border: none;width: 103%; height: 30px; background-color: rgb(15, 123, 231);color: white;"></a>
+          </form>
+        </div>
+      </div>
+      <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js">
+      </script>
+      <script>
+        window.onload = function () {
+
+        }
+
+        const host = "https://shramik-1edeb.web.app";
+
+        // Initialize Firebase(2)
+        var config = {
+          apiKey: 'AIzaSyD2sWwPwPFQLAFE3HMN8uQa1MmUfCJf9-k',
+          authDomain: 'shramik-16256.firebaseapp.com',
+          databaseURL: 'https://shramik-16256-default-rtdb.firebaseio.com/',
+          projectId: 'shramik-16256',
+          storageBucket: 'shramik-16256.appspot.com',
+          messagingSenderId: '664753648617'
+        };
+        firebase.initializeApp(config);
+        console.log(firebase);
+
+        var messagesRef = firebase.database()
+          .ref('Collected Data');
+
+
+        document.getElementById('Worker').addEventListener('submit', valid);
+
+
+        async function uploadImage() {
+          const ref = firebase.storage().ref();
+          const file = document.querySelector("#image").files[0];
+          const name = +new Date() + "-" + file.name;
+          const metadata = {
+            contentType: file.type
+          };
+          try {
+
+            const task = await ref.child(name).put(file, metadata);
+            console.log(task.downloadURL);
+            return task.downloadURL;
+          }
+          catch (error) {
+            console.error(error);
+            return null;
+          }
+        }
+
+
+
+
+        // Save message to firebase
+        function saveMessage(name, dob, gender, skill, adhaar, phone, pincode, image,exp, rating, review, ccount) {
+          let newMessageRef = messagesRef.push();
+          newMessageRef.set({
+            name: name,
+            dob: dob,
+            gender: gender,
+            skill: skill,
+            adhaar: adhaar,
+            phone: phone,
+            pincode: pincode,
+            image: image,
+            exp:exp,
+            ccount: ccount,
+            rating: rating,
+            review: review,
+            available: false
+          });
+          let uid = newMessageRef.key;
+          new QRCode(document.getElementById("qr_code"), `${host}/attendance.html?uid=${uid}`);
+          console.log("key = ", uid);
+          alert("succesfully registered");
+        }
+
+
+        // Function to get form values 
+        function getInputVal(id) {
+          return document.getElementById(id).value;
+        }
+
+        async function submitForm(e) {
+          // Get values
+          var name = getInputVal('name');
+          var dob = getInputVal('dob');
+          var gender = getInputVal('gender');
+          var skill = getInputVal('skill');
+          var adhaar = getInputVal('adhaar');
+          var phone = getInputVal('pnum');
+          var pincode = getInputVal('pincode');
+          var exp=getInputVal('exp');
+          var rating = 4;
+          var ccount = 1;
+          var review = "";
+          let url = await uploadImage();
+          var image = url;
+          
+          console.log("Uploaded image url = ", url);
+          saveMessage(name, dob, gender, skill, adhaar, phone, pincode, image,exp, rating, review, ccount);
+
+        }
+        function getAge(DOB) {
+          var today = new Date();
+          var birthDate = new Date(DOB);
+          var age = today.getFullYear() - birthDate.getFullYear();
+          var m = today.getMonth() - birthDate.getMonth();
+          if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+          }
+          return age;
+        }
+
+
+        async function valid(e) {
+          e.preventDefault();
+          var pin_code = document.getElementById("pincode");
+          var adhaar = document.getElementById("adhaar");
+          var user_mobile = document.getElementById("pnum");
+          var pat1 = /^\d{6}$/;
+          var pattern = /^\d{10}$/;
+          var regexp = /^[2-9]{1}[0-9]{3}[0-9]{4}[0-9]{4}$/;
+          var enteredValue = document.getElementById("dob");
+          var enteredAge = getAge(enteredValue.value);
+          if (enteredAge < 18) {
+            alert("DOB not valid");
+            enteredValue.focus();
+            return false;
+          }
+          if (!regexp.test(adhaar.value)) {
+            alert("adhaar number should be valid ");
+            adhaar.focus();
+            return false;
+          }
+          if (!pattern.test(user_mobile.value)) {
+            alert("Phone nubmer should be valid ");
+            user_mobile.focus();
+            return false;
+          }
+          if (!pat1.test(pin_code.value)) {
+            alert("Pin code should be 6 digits ");
+            pin_code.focus();
+            return false;
+          }
+          else {
+            // show loader-container
+            document.getElementsByClassName('loader-container')[0].style.display = 'block';
+            await submitForm(e);
+            // hide loader
+            document.getElementsByClassName('loader')[0].style.display = 'none';
+            document.getElementById('qr_code').style.display = 'block';
+            document.getElementById('Worker').reset();
+          }
+        }
+
+      </script>
+
+    </div>
+    <div id="down">
+      <h3>Join us on</h3>
+      <a href="#" class="fa fa-facebook" style="text-decoration: none; padding: 10px 12px;color: white; "></a>
+      <a href="#" class="fa fa-instagram" style="text-decoration: none; padding: 10px 12px;color: white;"></a>
+      <a href="#" class="fa fa-twitter" style="text-decoration: none; padding: 10px 12px;color: white;"></a>
+      <h2>For Further Queries</h2>
+      <a href="#" class="fa fa-home" style="text-decoration: none; padding: 10px 12px;color: white; ">
+        Gurgaon
+        Haryana
+      </a> <br>
+      <a href="#" class="fa fa-phone" style="text-decoration: none; padding: 10px 12px;color: white;">
+        834762356
+      </a> <br>
+      <a href="#" class="fa fa-envelope" style="text-decoration: none; padding: 10px 12px; color:white;">
+        shramikindia@gmail.com
+      </a>
+    </div>
+    <div class="footer">POWERED BY CATTTYWAMPUS </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shramik.com</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap');
+        #background{
+
+min-height: 1050px;
+width: 100%;
+
+}
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+#top{
+height: 35px;
+width: 100%;
+background:#2c7ad6;
+line-height: 35px;
+padding: 0px 20px 9px 100px;
+box-sizing: border-box;
+word-spacing:10px ;
+
+}
+#menu{
+height: 65px;
+width: 100%;
+background:green;
+
+}
+#logo{
+height: 65px;
+width: 40%;
+background:white;
+text-align: left;
+line-height: 65px;
+font-size: 40px;
+float: left;
+
+}
+
+#about{
+    height: 640px;
+    width: 100%;
+    background-color: white;
+    text-align: center;
+    padding-top: 250px;
+    padding-left: 80px;
+    font-size: 50px;
+
+}
+
+#down{
+height: 300px;
+width: 100%;
+margin-top: 10px;
+background:#2c7ad6;
+text-align: center;
+padding-top: 50px;
+color: white;
+}
+.footer{
+height: 20px;
+width: 100%;
+background: black;
+color: white;
+text-align: center;
+}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+} 
+nav{
+  display: flex;
+  height: 66px;
+  width: 100%;
+  background:white;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0px 0 0px;
+  flex-wrap: wrap;
+}
+nav .logo{
+  color:black;
+  font-size: 3vw;
+  font-weight: 600;
+}
+nav ul{
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  text-shadow: 0px 2px rgb(0,0,0, .4);
+  
+}
+nav ul li{
+  margin: 0px 5px;
+  padding-left: 25px;
+}
+nav ul li a{
+  color: black;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover{
+  color: #111;
+  background: #2c7ad6;
+  
+}
+nav .menu-btn i{
+  color: #2c7ad6;
+  font-size: 22px;
+  cursor: pointer;
+  display: none;
+}
+input[type="checkbox"]{
+  display: none;
+}
+@media (max-width: 1000px){
+  nav{
+    padding: 0 40px 0 50px;
+  }
+}
+@media (max-width: 920px) {
+  nav .menu-btn i{
+    display: block;
+  }
+  #click:checked ~ .menu-btn i:before{
+    content: "\f00d";
+  }
+  nav ul{
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    background:white;
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  #click:checked ~ ul{
+    left: 0;
+  }
+  nav ul li{
+    width: 100%;
+    margin: 40px 0;
+  }
+  nav ul li a{
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+  #click:checked ~ ul li a{
+    margin-left: 0px;
+  }
+  nav ul li a.active,
+  nav ul li a:hover{
+    background: none;
+    color: #2c7ad6;
+  }
+} 
+    </style>
+</head>
+<body>
+    <div id="background">
+        <div id="top">
+            <marquee direction="right">
+                <a href="#" class="fa fa-envelope" style="text-decoration:none;  color: white;">
+                    shramikindia@gmail.com
+                  </a>
+                  <a href="#" class="fa fa-phone" style="text-decoration:none; color: white;">
+                   Helpline no : 823765436
+                  </a>
+               </marquee> 
+            </div>
+        <div id="menu">
+            <nav><div class="logo">SHRA<b style="color:#2c7ad6 ;">MIK</b>
+            </div>
+            <input type="checkbox" id="click">
+            <label for="click" class="menu-btn">
+            <i class="fas fa-bars"></i>
+            </label>
+            <ul>
+              <li><a href="ican.html">Home</a></li>
+              <li><a href="register.html">Register</a></li>
+              <li><a href="about.html">About us</a></li>
+            </ul>
+            </nav> 
+        </div>
+        <hr>
+        <img src="Capture.png" style="width: 100%;">
+        <hr>
+          
+        
+        <div id="down">
+            <h3>Join us on</h3>
+            <a href="#" class="fa fa-facebook" style="text-decoration: none; padding: 10px 12px;color: white; "></a>
+            <a href="#" class="fa fa-instagram" style="text-decoration: none; padding: 10px 12px;color: white;"></a>
+            <a href="#" class="fa fa-twitter" style="text-decoration: none; padding: 10px 12px;color: white;"></a><br><br>
+            <h2>For Further Queries</h2>
+            <a href="#" class="fa fa-home" style="text-decoration: none; padding: 10px 12px;color: white; ">
+                Gurgaon
+                Haryana
+            </a> <br>
+            <a href="#" class="fa fa-phone" style="text-decoration: none; padding: 10px 12px;color: white;">
+              834762356
+            </a> <br>
+            <a href="#" class="fa fa-envelope" style="text-decoration: none; padding: 10px 12px; color:white;">
+              shramikindia@gmail.com
+              </a>
+        </div>
+        <div class="footer">POWERED BY CATTTYWAMPUS </div>
+    </div>
+</body>
+</html>
