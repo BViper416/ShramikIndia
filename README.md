@@ -35,16 +35,6 @@ Back-End-- `Firebase`
 
 `Java, Firebase` 
 
-Files & directories
-List of key files and directories, how they're organized and used, etc.
-
-When: date
-
-File(s):
-
-Line #N in [path to file]
-Line #N in [path to file]
-Database: Note any changes to the database. If none, delete this line.
 
 **Credits** <br>
 Ashwini Kumar HOD Dronacharya College of Engineering Farukh Nagar Gurgaon 
