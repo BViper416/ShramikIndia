@@ -1,5 +1,8 @@
 package com.example.shram;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,11 @@ import java.util.List;
 public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
 
     private List<Job> joblist;
+    private Context context;
 
-    public JobAdapter(Home home, List<Job> joblist){
+    public JobAdapter(Home home, List<Job> joblist, Context context){
         this.joblist = joblist;
+        this.context = context;
     }
 
     @NonNull
@@ -27,9 +32,32 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.JobViewHolder> {
     }
 
     @Override
-    public void onBindViewHolder(@NonNull JobViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull JobViewHolder holder, @SuppressLint("RecyclerView") int position) {
+
         holder.image.setImageResource(joblist.get(position).getImage());
         holder.name.setText(joblist.get(position).getJname());
+
+
+
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, Search.class);
+                intent.putExtra("skill", joblist.get(position).getJname());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, Search.class);
+                intent.putExtra("skill", joblist.get(position).getJname());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -42,6 +42,8 @@ public class Search extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
 
+        item = getIntent().getStringExtra("skill");
+
         searchView = findViewById(R.id.searchView);
         database = FirebaseDatabase.getInstance().getReference("Collected Data");
 
@@ -91,7 +93,7 @@ public class Search extends AppCompatActivity {
                 slist.clear();
                 for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                     Worker w = dataSnapshot.getValue(Worker.class);
-                    if(w.isAvailable()){
+                    if(w.isAvailable() && w.getSkill().equals(item)){
                         slist.add(w);
                     }
                 }

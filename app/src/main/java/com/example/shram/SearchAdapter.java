@@ -1,6 +1,7 @@
 package com.example.shram;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -34,13 +35,64 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchView
 
     @Override
     public void onBindViewHolder(@NonNull SearchViewHolder holder, int position) {
-        final Worker t = workerlist.get(position);
+        final Worker temp = workerlist.get(position);
 
         holder.name.setText(workerlist.get(position).getName());
         holder.skill.setText(workerlist.get(position).getSkill());
         Picasso.with(context)
                 .load(Uri.parse(workerlist.get(position).getImage()))
                 .into(holder.image);
+
+        holder.name.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, WorkerProfile.class);
+                intent.putExtra("image", temp.getImage());
+                intent.putExtra("name", temp.getName());
+                intent.putExtra("skill", temp.getSkill());
+                intent.putExtra("phone", temp.getPhone());
+                intent.putExtra("exp", temp.getExp());
+                intent.putExtra("rating", temp.getRating());
+                intent.putExtra("review", temp.getReview());
+                intent.putExtra("pin", temp.getPincode());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, WorkerProfile.class);
+                intent.putExtra("image", temp.getImage());
+                intent.putExtra("name", temp.getName());
+                intent.putExtra("skill", temp.getSkill());
+                intent.putExtra("phone", temp.getPhone());
+                intent.putExtra("exp", temp.getExp());
+                intent.putExtra("rating", temp.getRating());
+                intent.putExtra("review", temp.getReview());
+                intent.putExtra("pin", temp.getPincode());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
+
+        holder.skill.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, WorkerProfile.class);
+                intent.putExtra("image", temp.getImage());
+                intent.putExtra("name", temp.getName());
+                intent.putExtra("skill", temp.getSkill());
+                intent.putExtra("phone", temp.getPhone());
+                intent.putExtra("exp", temp.getExp());
+                intent.putExtra("rating", temp.getRating());
+                intent.putExtra("pin", temp.getPincode());
+                intent.putExtra("review", temp.getReview());
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(intent);
+            }
+        });
     }
 
     @Override

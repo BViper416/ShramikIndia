@@ -55,7 +55,9 @@ public class WorkerProfile extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(WorkerProfile.this, Search.class));
+                Intent intent = new Intent(WorkerProfile.this, Search.class);
+                intent.putExtra("skill", "all");
+                startActivity(intent);
             }
         });
 
