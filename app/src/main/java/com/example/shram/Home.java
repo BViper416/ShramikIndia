@@ -48,15 +48,15 @@ public class Home extends AppCompatActivity {
         wlist = new ArrayList<>();
         jlist = new ArrayList<>();
         workerAdapter = new WorkerAdapter( wlist, getApplicationContext());
-        jobAdapter = new JobAdapter(Home.this, jlist);
+        jobAdapter = new JobAdapter(Home.this, jlist, getApplicationContext());
         workerview.setAdapter(workerAdapter);
         jobview.setAdapter(jobAdapter);
 
-        jlist.add(new Job(R.drawable.shramik, getString(R.string.plumber)));
-        jlist.add(new Job(R.drawable.shramik, getString(R.string.electrician)));
-        jlist.add(new Job(R.drawable.shramik, getString(R.string.carpenter)));
-        jlist.add(new Job(R.drawable.shramik, getString(R.string.unskilled)));
-        jlist.add(new Job(R.drawable.shramik, getString(R.string.thekedaar)));
+        jlist.add(new Job(R.drawable.shramik, "plumber"));
+        jlist.add(new Job(R.drawable.shramik, "electrician"));
+        jlist.add(new Job(R.drawable.shramik, "carpenter"));
+        jlist.add(new Job(R.drawable.shramik, "unskilled"));
+        jlist.add(new Job(R.drawable.shramik, "Thekedar"));
 
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -83,7 +83,9 @@ public class Home extends AppCompatActivity {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Home.this, Search.class));
+                Intent intent = new Intent(Home.this, Search.class);
+                intent.putExtra("skill", "all");
+                startActivity(intent);
             }
         });
 
