@@ -37,6 +37,6 @@ Back-End-- `Firebase`
 
 
 **Credits** <br>
-Ashwini Kumar HOD Dronacharya College of Engineering Farukh Nagar Gurgaon 
+Ashwini Kumar HOD Dronacharya College of Engineering, Farukh Nagar, Gurgaon 
 
 
