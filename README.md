@@ -42,6 +42,6 @@ When: Starting Date-- 29/04/2022 to 1/05/2022
 
 
 **Credits** <br>
-Ashwini Kumar HOD Dronacharya College of Engineering Farukh Nagar Gurgaon 
+Ashwini Kumar HOD Dronacharya College of Engineering, Farukh Nagar, Gurgaon 
 
 
